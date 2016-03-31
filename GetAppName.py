@@ -21,15 +21,18 @@ def findAllBanks():
 
     # print(html)
 
-    banks = re.findall('<li class="cate_list_2n"><a.*?>(.*?)</a>.*?</li>', html, re.S)
+    banks = re.findall(r'<h4>'
+                       r'[^<>]*'
+                       r'<a href="(.*?\.html).*?">(.*?)</a>'
+                       r'</h4>', html, re.S)
 
     # banks = re.findall('<img src="(.*?)" width="150" height="46" alt="(.*?)">', html, re.S)
     #
-    print(banks)
+    # print(banks)
 
     for bank in banks:
-        # print(bank[0])
-        # print(bank[1])
-        print(bank.strip())
+        print(bank[0])
+        print(bank[1])
+        # print(bank.strip())
 
 findAllBanks()
